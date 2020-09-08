@@ -1,1 +1,1 @@
-# selenium_suite
+Practice and review of selenium suite, running test cases, and generating reports (report part is still in progress)
