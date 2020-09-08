@@ -12,18 +12,20 @@ LOAD_TIME = 10
 
 class SearchText(unittest.TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         # Precquisities before each test case
-        self.driver = webdriver.Chrome(PATH)
-        self.driver.implicitly_wait(LOAD_TIME)
-        self.driver.maximize_window()
-        self.driver.get("https://www.google.com/")
+        cls.driver = webdriver.Chrome(PATH)
+        cls.driver.implicitly_wait(LOAD_TIME)
+        cls.driver.maximize_window()
+        cls.driver.get("https://www.google.com/")
 
     def test_search_by_test(self):
         # Get the search textbox
         self.search_field = self.driver.find_element_by_name("q")
 
         # Enter search keyword and submit
+        self.search_field.clear()
         self.search_field.send_keys("Selenium WebDriver Interview question")
         self.search_field.submit()
 
@@ -45,12 +47,13 @@ class SearchText(unittest.TestCase):
         list_new = self.driver.find_elements_by_class_name("r")
         self.assertEqual(10, len(list_new))
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(cls):
         # Closes the browser window
-        self.driver.quit()
+        cls.driver.quit()
 
-# if __name__ == "__main__":
-#     unittest.main()
+if __name__ == "__main__":
+    unittest.main()
 
 
 
