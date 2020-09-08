@@ -11,7 +11,7 @@ PATH = "C:\Program Files (x86)\chromedriver.exe"
 LOAD_TIME = 10
 
 
-class SearchText(unittest.TestCase):
+class HomePageTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
